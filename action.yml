@@ -12,7 +12,7 @@ inputs:
   filter:
     description: 'Filename Regex filter'
     required: false
-    default: '(.*).md'
+    default: '\(.*\).md'
 
 runs:
   using: 'composite'
