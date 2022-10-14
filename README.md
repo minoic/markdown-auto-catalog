@@ -48,7 +48,7 @@ jobs:
 |---------------|--------|----------|--------|
 | content-path  |   Path of the documents to be listed in catalog.     | Yes      |        |
 | document-path |     Path of the catalog document.   | Yes      |        |
-| filter        |     Filename Regex filter   | Optional |    \(.*\).md    |
+| filter        |     Filename Regex filter   | Optional |    \\(.*\\).md    |
 
 ## Preview
 
