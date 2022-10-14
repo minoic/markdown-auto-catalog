@@ -1,0 +1,12 @@
+name: minoic-auto-catalog
+
+on:
+  push:
+    branches: [ "master" ]
+  workflow_dispatch:
+  
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: minoic/markdown-auto-catalog
