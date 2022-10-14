@@ -30,16 +30,17 @@ on:
   push:
     branches: [ "master" ]
   workflow_dispatch:
-  
+
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - uses: minoic/markdown-auto-catalog@master
-      with:
-        content-path: 'test/folder'
-        document-path: 'test/README.md'
-        filter: '\(.*\).md'
+      - uses: minoic/markdown-auto-catalog@master
+        with:
+          content-path: 'test/folder'
+          document-path: 'test/README.md'
+          filter: '\(.*\).md'
+        continue-on-error: true
 
 ```
 
