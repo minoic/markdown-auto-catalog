@@ -1,1 +1,49 @@
+name: 'Markdown auto catalog'
+author: 'minoic'
+description: 'Github action automatically update folder-based table of contents in documents.'
 
+inputs:
+  content-path:
+    description: 'Path of the documents to be listed in catalog.'
+    required: true
+  document-path: 
+    description: 'Path of the catalog document.'
+    required: true
+  filter:
+    description: 'Filename Regex filter'
+    required: false
+    default: '*'
+
+runs:
+  using: 'composite'
+  steps:
+    - uses: actions/checkout@v3
+
+    - name: Set up Go
+      uses: actions/setup-go@v3
+      with:
+        go-version: 1.18
+
+    - name: Run
+      shell: bash
+      run: go run -v catalog.go ${{ inputs.content-path }} ${{ inputs.document-path }} ${{ inputs.filter }}
+
+    - name: Commit files
+      shell: bash
+      run: |
+        git config --local user.name "markdown-auto-catalog[bot]"
+        git config --local user.email "markdown-auto-catalog[bot]@users.noreply.github.com"
+        git commit -a -m 'Automated catalog update'
+      
+    - name: Create Pull Request
+      uses: peter-evans/create-pull-request@v3
+      with:
+        title: '[Bot] Automated catalog update'
+        committer: GitHub <noreply@github.com>
+        author: markdown-auto-catalog[bot] <markdown-auto-catalog[bot]@users.noreply.github.com>
+        branch: t/bot/markdown-auto-catalog
+    
+
+branding:
+  icon: 'list'
+  color: 'blue'
