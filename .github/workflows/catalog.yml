@@ -13,4 +13,4 @@ jobs:
       with:
         content-path: 'test/folder'
         document-path: 'test/README.md'
-        filter: '(.*).md'
+        filter: '\(.*\).md'
