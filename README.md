@@ -66,3 +66,11 @@ jobs:
 
 <!-- catalog -->
 ```
+
+## Notice
+
+1. When there are no files to change, there will be no PRs.
+2. The previous PR is updated when it has not been merged and there are new changes.
+3. If you don't like the red × when no files to change, add `continue-on-error: true` below the step.
+4. Folders that are empty or contain filtered files will also show up in the directory, so keep unnecessary files in other directories.
+5. Tables of contents are sorted in ascending lexicographical order and can be named using a format such as "01 - article title.md" to ensure the table of contents is in the order you want.
