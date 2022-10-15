@@ -22,7 +22,7 @@ Step 2
 Add workflow in your project by creating workflow file such as `.github/workflows/catalog.yml` with the code below:
 
 ```yaml
-name: minoic-auto-catalog
+name: markdown-auto-catalog
 
 on:
   push:
