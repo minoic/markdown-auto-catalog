@@ -9,14 +9,12 @@ Step 1
 
 Add two flags `<!-- catalog -->` to the document you want to add catalog.So that the catalog while be automatically update while the job works.
 
-```mardown
-
+```markdown
 ## Catalog
 
 <!-- catalog -->
 
 <!-- catalog -->
-
 ``` 
 
 Step 2
@@ -41,7 +39,6 @@ jobs:
           document-path: 'test/README.md'
           filter: '\(.*\).md'
         continue-on-error: true
-
 ```
 
 | Argument      | Description | Required | Default |
@@ -53,7 +50,6 @@ jobs:
 ## Preview
 
 ```markdown
-
 ## Catalog
 
 <!-- catalog -->
@@ -69,5 +65,4 @@ jobs:
   - [article6.md](test/folder/2-chapter2/article6.md)
 
 <!-- catalog -->
-
 ```
