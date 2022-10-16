@@ -26,7 +26,7 @@ runs:
 
     - name: Run
       shell: bash
-      run: go run -v catalog.go -content ${{ inputs.content-path }} -doc ${{ inputs.document-path }} -filter ${{ inputs.filter }}
+      run: go run -v ${{ github.action_path }}/catalog.go -content ${{ inputs.content-path }} -doc ${{ inputs.document-path }} -filter ${{ inputs.filter }}
 
     - name: Commit files
       shell: bash
