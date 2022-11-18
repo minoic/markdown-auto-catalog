@@ -15,8 +15,3 @@ jobs:
         document-path: 'test/README.md'
         filter: '\(.*\).md'
       continue-on-error: true
-    - uses: minoic/markdown-auto-catalog@v1.0.0
-      with:
-        content-path: 'test/folder'
-        document-path: 'test/folder/1-chapter1/sub-catalog/sub-catalog.md'
-      continue-on-error: true
