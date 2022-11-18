@@ -7,6 +7,7 @@ import (
 	"io/ioutil"
 	"os"
 	"path"
+	"path/filepath"
 	"regexp"
 	"strings"
 )
@@ -37,7 +38,12 @@ func dfs(ctl *strings.Builder, folderPath string, depth int) {
 		if ok, _ := regexp.MatchString(Filter, file.Name()); !ok {
 			continue
 		}
-		ctl.WriteString(fmt.Sprintf("%s- [%s](%s)\n", gap, strings.Trim(file.Name(), "[]"), strings.ReplaceAll(path.Join(folderPath, file.Name()), " ", "%20")))
+
+		rel, err := filepath.Rel(filepath.Dir(DocumentPath), path.Join(folderPath, file.Name()))
+		if err != nil {
+			panic(err)
+		}
+		ctl.WriteString(fmt.Sprintf("%s- [%s](%s)\n", gap, strings.Trim(file.Name(), "[]"), strings.ReplaceAll(strings.ReplaceAll(rel, " ", "%20"), `\`, "/")))
 	}
 }
 
@@ -56,6 +62,9 @@ func main() {
 	ctl := strings.Builder{}
 	ctl.WriteString("\n\n")
 	dfs(&ctl, ContentPath, 0)
+	if len(splits) <= 1 {
+		panic("cant find flags in document,please add two <!-- catalog --> flags into your document!!!")
+	}
 	readmeS = splits[0] + flag + ctl.String() + "\n" + flag + splits[2]
 	err = readme.Truncate(0)
 	if err != nil {
