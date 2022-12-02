@@ -33,7 +33,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: minoic/markdown-auto-catalog@v1.0.1
+      - uses: minoic/markdown-auto-catalog@v1.0.2
         with:
           content-path: 'test/folder'
           document-path: 'test/README.md'
