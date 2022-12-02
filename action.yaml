@@ -42,6 +42,7 @@ runs:
         committer: GitHub <noreply@github.com>
         author: markdown-auto-catalog[bot] <markdown-auto-catalog[bot]@users.noreply.github.com>
         branch: t/bot/markdown-auto-catalog
+        body: Catalog generated using [markdown-auto-catalog](https://github.com/minoic/markdown-auto-catalog/) GitHub action
 
 branding:
   icon: 'list'
