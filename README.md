@@ -3,6 +3,8 @@ GitHub action automatically update folder-based table of contents in documents.
 
 This bot will help you scan folders and add directories to the specified location of the specified document as a list.
 
+An example repository using this tool: [minoic/stackoverflow-go-top-qa](https://github.com/minoic/stackoverflow-go-top-qa)
+
 ## Usage
 
 Step 1
