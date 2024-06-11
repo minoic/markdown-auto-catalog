@@ -1,7 +1,8 @@
+
 # markdown-auto-catalog
 GitHub action automatically update folder-based table of contents in documents.
 
-This bot will help you scan folders and add directories to the specified location of the specified document as a list.
+This robot will help you scan the folder and add the directory in the form of a list to the specified location of the specified document.
 
 An example repository using this tool: [minoic/stackoverflow-go-top-qa](https://github.com/minoic/stackoverflow-go-top-qa)
 
@@ -9,7 +10,7 @@ An example repository using this tool: [minoic/stackoverflow-go-top-qa](https://
 
 Step 1
 
-Add two flags `<!-- catalog -->` to the document you want to add catalog.So that the catalog while be automatically update while the job works.
+Add two tags `<!-- catalog -->` to the appropriate location in the document where you want to add the catalog. This way, when the GitHub Action workflow job is completed, the catalog will be automatically added or updated between these two tags.
 
 ```markdown
 ## Catalog
@@ -51,6 +52,8 @@ jobs:
 
 ## Preview
 
+**Code view:**
+
 ```markdown
 ## Catalog
 
@@ -72,10 +75,31 @@ jobs:
 <!-- catalog -->
 ```
 
+**Reader view:**
+
+>## Catalog
+> 
+> <!-- catalog -->
+> 
+> - [0-intro.md](folder/0-intro.md)
+> - 1-chapter1
+>   - [article1.md](folder/1-chapter1/article1.md)
+>   - [article2.md](folder/1-chapter1/article2.md)
+>   - [article3.md](folder/1-chapter1/article3.md)
+>   - sub-catalog
+>     - [sub-catalog.md](folder/1-chapter1/sub-catalog/sub-catalog.md)
+> - 2-chapter2
+>   - [article4.md](folder/2-chapter2/article4.md)
+>   - [article5.md](folder/2-chapter2/article5.md)
+>   - [article6.md](folder/2-chapter2/article6.md)
+>   - [article7.md](folder/2-chapter2/article7.md)
+> 
+> <!-- catalog -->
+
 ## Notice
 
 1. When there are no files to change, there will be no PRs.
 2. The previous PR is updated when it has not been merged and there are new changes.
 3. If you don't like the red × when no files to change, add `continue-on-error: true` below the step.
-4. Folders that are empty or contain filtered files will also show up in the directory, so keep unnecessary files in other directories.
+4. Empty folders or folders containing filtered files are also displayed in the directory, so save unnecessary files in other directories.
 5. Tables of contents are sorted in ascending lexicographical order and can be named using a format such as "01 - article title.md" to ensure the table of contents is in the order you want.
